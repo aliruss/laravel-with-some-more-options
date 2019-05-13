@@ -41,4 +41,16 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Role::class);
     }
+    public static function current()
+    {
+        if (!self::isLoggedIn()) {
+            return null;
+        }
+
+        return session('user');
+    }
+    public static function isLoggedIn()
+    {
+        return (bool) session('logged_in');
+    }
 }

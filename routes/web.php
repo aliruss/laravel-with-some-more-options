@@ -19,7 +19,7 @@ Route::middleware(['check_permission'])->group(function () {
             return view('welcome');
         });
     });
-    Route::namespace('Admin')->group(function () {
+    Route::namespace('Admin')->prefix('/admin')->group(function () {
         //write your back-end routes
         Route::get('/home', 'HomeController@index')->name('home');
     });
