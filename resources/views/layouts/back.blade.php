@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('dist/css/bootstrap.css') }}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4-4.1.1/dt-1.10.18/datatables.min.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <title>@yield('title')</title>
 </head>
@@ -63,7 +66,7 @@
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">مدیریت کاربران <span class="caret"></span></a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a href="" class="dropdown-item">کاربران سیستم</a>
+                                <a href="{{ route('admin.users.index') }}" class="dropdown-item">کاربران سیستم</a>
                                 <a href="{{ route('admin.roles.index') }}" class="dropdown-item">مدیریت نقش ها</a>
                                 <a href="{{ route('admin.permissions.index') }}" class="dropdown-item">مدیریت مجوز ها</a>
                             </div>
@@ -73,7 +76,7 @@
                 </div>
             </div>
         </nav>
-
+        @include('messages.error')
         <main class="py-4">
             @yield('content')
         </main>
@@ -81,6 +84,8 @@
 
     <script src="{{ asset('dist/js/jquery-3.4.1.min.js') }}"></script>
     <script src="{{ asset('dist/js/bootstrap.js') }}"></script>
+    <script src="{{ asset('js/select2.min.js') }}"></script>
+    @yield('script')
 </body>
 
 </html>

@@ -23,6 +23,14 @@ Route::middleware(['check_permission'])->group(function () {
         //write your back-end routes
         Route::get('/', 'HomeController@index')->name('home');
 
+        // Users routes
+        Route::get('/users', 'UserController@index')->name('admin.users.index');
+        Route::get('/users/new', 'UserController@create')->name('admin.users.new');
+        Route::post('/users/new', 'UserController@store')->name('admin.users.store');
+        Route::get('/users/{user}/edit', 'UserController@edit')->name('admin.users.edit');
+        Route::post('/users/{user}/update', 'UserController@update')->name('admin.users.update');
+        Route::get('/users/{user}/delete', 'UserController@destroy')->name('admin.users.delete');
+
         // Roles routes.
         Route::get('/roles', 'RoleController@index')->name('admin.roles.index');
         Route::post('/roles', 'RoleController@store')->name('admin.roles.store');
