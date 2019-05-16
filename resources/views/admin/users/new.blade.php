@@ -29,7 +29,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="password_confirmation">تکرار پسورد</label>
-                    <input type="password_confirmation" name="password_confirmation" class="form-control" required>
+                    <input type="password" name="password_confirmation" class="form-control" required>
                 </div>
             </div>
         </div>

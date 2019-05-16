@@ -31,6 +31,10 @@ Route::middleware(['check_permission'])->group(function () {
         Route::post('/users/{user}/update', 'UserController@update')->name('admin.users.update');
         Route::get('/users/{user}/delete', 'UserController@destroy')->name('admin.users.delete');
 
+        // Setting Admin
+        Route::get('/settings', 'SettingController@index')->name('admin.setting.index');
+        Route::post('/settings', 'SettingController@store')->name('admin.setting.store');
+
         // Roles routes.
         Route::get('/roles', 'RoleController@index')->name('admin.roles.index');
         Route::post('/roles', 'RoleController@store')->name('admin.roles.store');
